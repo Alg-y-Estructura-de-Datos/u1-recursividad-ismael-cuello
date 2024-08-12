@@ -1,9 +1,22 @@
 #include <iostream>
 using namespace std;
-
+void invertir(int n, int& invertido ){
+    if(n==0){
+        return ;
+    }else{
+        invertido = invertido * 10 + n%10;
+        invertir(n/10,invertido);
+    }
+}
 int main() {
+    int n = 10523;
 
-    cout << "Examen Final Prog 3" << endl;
+    if (n < 0) {
+        std::cout << "ingrese un numero no negativo" << std::endl;
+    }
 
-    return 0;
+    int invertido = 0;
+    invertir(n, invertido);
+
+    std::cout<<invertido;
 }
